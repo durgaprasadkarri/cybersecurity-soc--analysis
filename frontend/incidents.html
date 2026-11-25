@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Management - Cyber Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <h2>Incident Management</h2>
+    <button onclick="window.location.href='index.html'">
+        Back to Dashboard
+    </button>
+</header>
+
+<main style="padding: 25px;">
+    <h2>Report New Incident</h2>
+
+    <form id="incident-form">
+        <input id="title" type="text"
+               placeholder="Incident Title" required>
+
+        <textarea id="description"
+                  placeholder="Incident Description"
+                  required></textarea>
+
+        <input id="category" type="text"
+               placeholder="Category" required>
+
+        <select id="severity" required>
+            <option value="">Select Severity</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical</option>
+        </select>
+
+        <button type="submit">Submit Incident</button>
+    </form>
+
+    <p id="message"></p>
+
+    <hr>
+
+    <h2>Reported Incidents</h2>
+
+    <button id="refresh-incidents">Refresh</button>
+
+    <div id="incident-list">
+        Loading incidents...
+    </div>
+</main>
+
+<script src="js/incidents.js"></script>
+<script src="layout.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | CyberPortal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <h2>Settings</h2>
+
+    <div>
+        <button type="button"
+                onclick="window.location.href='index.html'">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </button>
+    </div>
+</header>
+
+<main class="main">
+  
+<section class="panel">
+    <h2>Data Management</h2>
+    <p>Manage stored CyberPortal records and history.</p>
+    <div class="form-group">
+        <h3>Clear Scan History</h3>
+        <p>Delete recorded scan results.</p>
+        <button type="button" id="clear-scan-history">
+            Clear Scan History
+        </button>       
+    <div class="form-group">
+        <h3>Clear Security Logs</h3>
+        <p>Delete recorded security events.</p>
+        <button type="button" id="clear-security-logs">
+            Clear Security Logs
+        </button>
+    </div>
+
+    <div class="form-group">
+        <h3>Reset All Portal Data</h3>
+        <p>Delete assets, vulnerabilities, incidents, scan history,
+           security logs and threat intelligence history.</p>
+        <button type="button" id="reset-all-data">
+            Reset All Data
+        </button>
+    </div>
+
+    <p id="data-management-message" aria-live="polite"></p>
+</section>
+
+
+</main>
+
+<script src="js/auth.js"></script>
+<script src="js/settings.js"></script>
+
+</body>
+</html>

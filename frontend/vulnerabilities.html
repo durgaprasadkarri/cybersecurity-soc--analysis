@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerability Management | CyberPortal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <h2>CYBER<span>PORTAL</span></h2>
+
+        <nav>
+       <a href="index.html">Dashboard</a>
+        <a href="index.html#assets">Assets</a>
+        <a href="vulnerabilities.html">Vulnerabilities</a>
+        <a href="scanner.html">Security Scans</a>
+        <a href="security_logs.html">Security Logs</a>
+        <a href="incidents.html">Incident Management</a>
+        <a href="live_monitoring.html">Live Monitoring</a>
+        <a href="threat_intelligence.html">Threat Intelligence</a>
+          <a href="settings.html">Settings</a> 
+        </nav>
+
+        <p class="sidebar-footer">SOC Management System</p>
+    </aside>
+
+    <main class="main">
+
+        <<header class="topbar">
+    <h2>Vulnerability Management</h2>
+    <button id="logout-btn" type="button">Logout</button>
+</header>
+
+        <section class="welcome">
+            <h1>Vulnerability Assessment</h1>
+            <p>Register, monitor and manage security vulnerabilities.</p>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <h3>Total Findings</h3>
+                <h1 id="total-findings">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Critical</h3>
+                <h1 id="critical-count">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>High</h3>
+                <h1 id="high-count">0</h1>
+            </div>
+
+            <div class="card">
+                <h3>Resolved</h3>
+                <h1 id="resolved-count">0</h1>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Add Vulnerability</h2>
+
+            <form id="vulnerability-form">
+
+                <div class="form-group">
+                    <label for="cve-id">CVE ID</label>
+                    <input
+                        id="cve-id"
+                        type="text"
+                        placeholder="CVE-2024-12345"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="vuln-title">Vulnerability Title</label>
+                    <input
+                        id="vuln-title"
+                        type="text"
+                        placeholder="Example: Outdated software"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="affected-asset">Affected Asset</label>
+                    <select id="affected-asset" required>
+                        <option value="">Loading assets...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="severity">Severity</label>
+                    <select id="severity" required>
+                        <option value="">Select severity</option>
+                        <option value="Critical">Critical</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="cvss">CVSS Score (0–10)</label>
+                    <input
+                        id="cvss"
+                        type="number"
+                        min="0"
+                        max="10"
+                        step="0.1"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea
+                        id="description"
+                        maxlength="2000"
+                        placeholder="Describe the vulnerability..."
+                    ></textarea>
+                </div>
+
+                <button type="submit">Add Vulnerability</button>
+            </form>
+
+            <p id="vulnerability-message" aria-live="polite"></p>
+        </section>
+
+        <section class="panel">
+            <h2>Registered Vulnerabilities</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>CVE ID</th>
+                            <th>Title</th>
+                            <th>Asset</th>
+                            <th>Severity</th>
+                            <th>CVSS</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="vulnerability-table">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/vulnerabilities.js"></script>
+<script src="layout.js"></script>
+
+</body>
+</html>

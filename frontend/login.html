@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CyberPortal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main class="main">
+    <section class="panel">
+        <h1>CYBERPORTAL</h1>
+        <h2>Analyst Login</h2>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    id="email"
+                    type="email"
+                    required
+                    placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    id="password"
+                    type="password"
+                    required
+                    placeholder="Enter your password">
+            </div>
+
+            <button type="submit" id="login-btn">Login</button>
+        </form>
+
+        <p id="auth-message" aria-live="polite"></p>
+
+        <p>New user? <a href="register.html">Create account</a></p>
+    </section>
+</main>
+
+<script src="js/auth.js"></script>
+
+<script>
+document.getElementById("login-form").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const button = document.getElementById("login-btn");
+    const message = document.getElementById("auth-message");
+
+    button.disabled = true;
+    button.textContent = "Logging in...";
+    message.textContent = "";
+
+    await loginUser(email, password);
+
+    button.disabled = false;
+    button.textContent = "Login";
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Portal | SOC Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <h2>CYBER<span>PORTAL</span></h2>
+
+        <nav>
+        <a class="active" href="index.html">Dashboard</a>
+        <a href="#assets">Assets</a>
+        <a href="vulnerabilities.html">Vulnerabilities</a>
+        <a href="scanner.html">Security Scans</a>
+        <a href="security_logs.html">Security Logs</a>
+        <a href="incidents.html">
+         <i class="fas fa-exclamation-triangle"></i>Incident Management</a>
+        <a href="live_monitoring.html">Live Monitoring</a>
+        <a href="threat_intelligence.html">Threat Intelligence</a>
+          <a href="settings.html">Settings</a>    
+        </nav>
+
+        <p class="sidebar-footer">SOC Management System</p>
+    </aside>
+
+    <main class="main">
+
+<header class="topbar">
+    <h2>Security Operations Center</h2>
+
+    <div>
+        <span id="current-user">Checking user...</span>
+
+       <button id="logout-btn" type="button">Logout</button>
+    </div>
+</header>
+
+        <section class="welcome">
+            <h1>Security Dashboard</h1>
+            <p>Monitor your organization's security status.</p>
+        </section>
+
+       <section class="cards">
+    <div class="card">
+        <h3>Total Assets</h3>
+        <h1 id="total-assets">0</h1>
+        <p>Registered assets</p>
+    </div>
+
+    <div class="card">
+        <h3>Vulnerabilities</h3>
+        <h1 id="total-vulnerabilities">0</h1>
+        <p>Registered findings</p>
+    </div>
+
+    <div class="card">
+        <h3>Security Alerts</h3>
+        <h1>0</h1>
+        <p>Coming soon</p>
+    </div>
+
+    <div class="card">
+        <h3>Incidents</h3>
+        <h1>0</h1>
+        <p>Coming soon</p>
+    </div>
+</section>
+
+        <section class="panel">
+            <h2>Recent Security Alerts</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Alert</th>
+                        <th>Severity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Multiple failed login attempts</td>
+                        <td class="high">High</td>
+                        <td>Open</td>
+                    </tr>
+
+                    <tr>
+                        <td>Outdated software detected</td>
+                        <td class="medium">Medium</td>
+                        <td>Investigating</td>
+                    </tr>
+
+                    <tr>
+                        <td>Unusual login activity</td>
+                        <td class="low">Low</td>
+                        <td>Resolved</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+<section class="panel">
+    <h2>Asset Management</h2>
+
+    <form id="asset-form">
+
+        <div class="form-group">
+            <label for="hostname">Hostname</label>
+            <input
+                type="text"
+                id="hostname"
+                placeholder="Example: web-server-01"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="ip-address">IP Address</label>
+            <input
+                type="text"
+                id="ip-address"
+                placeholder="Example: 192.168.1.10"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="asset-type">Asset Type</label>
+
+            <select id="asset-type" required>
+                <option value="">Select asset type</option>
+                <option value="Server">Server</option>
+                <option value="Workstation">Workstation</option>
+                <option value="Network Device">Network Device</option>
+                <option value="Virtual Machine">Virtual Machine</option>
+            </select>
+        </div>
+
+        <button type="submit">Add Asset</button>
+
+    </form>
+
+    <p id="asset-message" aria-live="polite"></p>
+
+    <h3>Registered Assets</h3>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Hostname</th>
+                    <th>IP Address</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="asset-table-body">
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+        <section class="panel">
+            <h2>Backend Connection</h2>
+            <p id="server-status">Checking server...</p>
+            <button id="check-server">Check Server</button>
+        </section>
+
+    </main>
+
+</div>
+<script src="js/auth.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", async function() {
+    const user = await checkLogin();
+
+    if (!user) {
+        return;
+    }
+
+    const userElement = document.getElementById("current-user");
+
+    if (userElement) {
+        userElement.textContent = user.name + " (" + user.role + ")";
+    }
+});
+</script>
+<script src="js/auth.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/settings.js"></script>
+</body>
+</html>
