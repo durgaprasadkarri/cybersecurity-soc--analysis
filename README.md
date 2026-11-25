@@ -70,7 +70,7 @@ Backend URL: `http://localhost:8080`
 **5. Run the frontend**
 
 Open the frontend using VS Code Live Server.
-** run manually this command `python3 -m http.server 5500'
+                                                                  ** run manually this command `python3 -m http.server 5500'
 
 ## 🔒 Security Notice
 
