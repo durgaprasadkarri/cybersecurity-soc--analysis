@@ -25,7 +25,7 @@ CyberPortal is a web-based cybersecurity management system that helps security a
 ## 📁 Project Structure
 
 ```text
-cyber-portal/
+cybersecurity-soc--analysis/
 ├── backend/
 │   ├── main.go
 │   ├── scanner.go
@@ -33,8 +33,8 @@ cyber-portal/
 │   └── go.sum
 ├── frontend/
 │   ├── HTML files
-│   ├── CSS files
-│   └── JavaScript files
+│   ├── css/style.css
+│   └── js/JavaScript files
 ├── database/
 └── README.md
 ```
@@ -50,7 +50,7 @@ https://github.com/durgaprasadkarri/cybersecurity-soc--analysis.git
 **2. Navigate to the backend**
 
 ```bash
-cd cyber-portal/backend
+cd cybersecurity-soc--analysis/backend
 ```
 
 **3. Install dependencies**
@@ -70,6 +70,7 @@ Backend URL: `http://localhost:8080`
 **5. Run the frontend**
 
 Open the frontend using VS Code Live Server.
+** run manually this command `python3 -m http.server 5500'
 
 ## 🔒 Security Notice
 
